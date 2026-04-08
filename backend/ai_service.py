@@ -29,22 +29,72 @@ def generate_tailored_resume(resume_text: str, job_description: str) -> str:
     job_description = truncate_text(job_description, max_chars=5000)
 
     prompt = f"""
-        You are an expert ATS resume optimizer.
+        You are an expert ATS resume optimizer and data formatter.
 
-        Rewrite the resume to match the job description.
+        Convert the resume into structured JSON format tailored to the job description.
 
         Rules:
-        - Keep it truthful
-        - Improve bullet points
-        - Add relevant keywords
-        - Make it ATS-friendly
-        - Keep formatting clean
+        - Keep all information truthful
+        - Improve bullet points for impact
+        - Add relevant keywords from the job description
+        - Ensure clean, professional wording
+        - Do NOT hallucinate fake experience
+
+        JSON Format:
+        {{
+            "name": "",
+            "summary": "",
+            "skills": {{
+                "frontend": [],
+                "backend": [],
+                "languages": [],
+                "tools": [],
+                "databases": []
+            }},
+            "experience": [
+                {{
+                "role": "",
+                "company": "",
+                "duration": "",
+                "points": []
+                }}
+            ],
+            "projects": [
+                {{
+                "name": "",
+                "tech_stack": [],
+                "points": []
+                }}
+            ],
+            "education": [
+                {{
+                "degree": "",
+                "institution": "",
+                "year": ""
+                }}
+            ]
+        }}
+
+        Skill Categorization Rules:
+        - frontend → React, Next.js, HTML, CSS, Tailwind, etc.
+        - backend → Node.js, Express, Django, Spring Boot, etc.
+        - languages → JavaScript, Python, Java, C++, etc.
+        - tools → Git, Docker, AWS, Postman, etc.
+        - databases → MongoDB, MySQL, PostgreSQL, Redis, etc.
+
+        Instructions:
+        - Place each skill in the MOST appropriate category
+        - Do NOT duplicate skills across categories
+        - If a category has no skills, return empty array []
+        - Keep consistent naming (e.g., "JavaScript" not "JS")
 
         Resume:
         {resume_text}
 
         Job Description:
         {job_description}
+
+        Return ONLY valid JSON. No explanation.
     """
 
     try:
@@ -65,6 +115,7 @@ def generate_email(resume_text: str, job_description: str) -> str:
 
     prompt = f"""
         Write a short, human, personalized job application email.
+        Write a professional job application email in Markdown format.
 
         Rules:
         - Less than 150 words
@@ -72,6 +123,13 @@ def generate_email(resume_text: str, job_description: str) -> str:
         - Mention relevant skills
         - Friendly tone
         - No generic phrases
+        Format:
+        - Subject line
+        - Greeting
+        - Body
+        - Closing
+
+        Keep it clean and readable.
 
         Resume:
         {resume_text}
