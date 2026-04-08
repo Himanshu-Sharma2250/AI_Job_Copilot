@@ -1,4 +1,5 @@
 import { states } from "@/app/state"
+import ReactMarkdown from "react-markdown"
 
 const FitScore = () => {
     const { result } = states();
@@ -26,9 +27,24 @@ const FitScore = () => {
             </p>
 
             {/* Display the actual AI reasoning/text in a readable scrolling box so it doesn't break the layout */}
-            <div className="w-full bg-white border-4 border-black p-4 max-h-[300px] overflow-y-auto mt-auto">
-                <h4 className="font-bold border-b-2 border-black mb-2 uppercase text-sm">AI Analysis</h4>
-                <p className="text-base font-medium whitespace-pre-wrap">{rawScore}</p>
+            <div className="w-full bg-white border-4 border-black p-4 max-h-[400px] overflow-y-auto mt-auto text-left">
+                <h4 className="font-black border-b-4 border-black mb-4 uppercase text-lg bg-yellow-200 px-2 py-1 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">AI Analysis</h4>
+                <div className="text-base font-medium text-black">
+                    <ReactMarkdown
+                        components={{
+                            strong: ({node, ...props}) => <strong className="font-black" {...props} />,
+                            p: ({node, ...props}) => <p className="mb-4 leading-relaxed" {...props} />,
+                            ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-4 space-y-2 marker:text-black font-semibold" {...props} />,
+                            ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-4 space-y-2 font-semibold" {...props} />,
+                            li: ({node, ...props}) => <li className="pl-1" {...props} />,
+                            h1: ({node, ...props}) => <h1 className="text-2xl font-black mb-3 mt-4 uppercase border-b-4 border-black pb-1 inline-block" {...props} />,
+                            h2: ({node, ...props}) => <h2 className="text-xl font-black mb-3 mt-4 uppercase border-b-2 border-black pb-1" {...props} />,
+                            h3: ({node, ...props}) => <h3 className="text-lg font-black mb-2 mt-4 uppercase bg-black text-white px-2 py-1 inline-block" {...props} />,
+                        }}
+                    >
+                        {rawScore}
+                    </ReactMarkdown>
+                </div>
             </div>
         </div>
     )
