@@ -23,7 +23,7 @@ function RouteComponent() {
           <p className="text-xl font-bold mt-2 uppercase">Total Generations: {resultHistory.length}</p>
         </div>
         <button 
-          onClick={() => navigate({ to: '/' })}
+          onClick={() => navigate({ to: '/create-resume' })}
           className="border-4 border-black cursor-pointer text-black bg-white px-6 py-2 font-black uppercase shadow-brutal hover:bg-pink-600 hover:text-white transition-all"
         >
           ← Back

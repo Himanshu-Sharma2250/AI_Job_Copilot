@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResultRouteImport } from './routes/result'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as FormRouteImport } from './routes/form'
+import { Route as CreateResumeRouteImport } from './routes/create-resume'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResultIdRouteImport } from './routes/result.$id'
 
@@ -30,6 +31,11 @@ const FormRoute = FormRouteImport.update({
   path: '/form',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreateResumeRoute = CreateResumeRouteImport.update({
+  id: '/create-resume',
+  path: '/create-resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +49,7 @@ const ResultIdRoute = ResultIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/create-resume': typeof CreateResumeRoute
   '/form': typeof FormRoute
   '/history': typeof HistoryRoute
   '/result': typeof ResultRouteWithChildren
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/create-resume': typeof CreateResumeRoute
   '/form': typeof FormRoute
   '/history': typeof HistoryRoute
   '/result': typeof ResultRouteWithChildren
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/create-resume': typeof CreateResumeRoute
   '/form': typeof FormRoute
   '/history': typeof HistoryRoute
   '/result': typeof ResultRouteWithChildren
@@ -65,14 +74,28 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/form' | '/history' | '/result' | '/result/$id'
+  fullPaths:
+    | '/'
+    | '/create-resume'
+    | '/form'
+    | '/history'
+    | '/result'
+    | '/result/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/form' | '/history' | '/result' | '/result/$id'
-  id: '__root__' | '/' | '/form' | '/history' | '/result' | '/result/$id'
+  to: '/' | '/create-resume' | '/form' | '/history' | '/result' | '/result/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/create-resume'
+    | '/form'
+    | '/history'
+    | '/result'
+    | '/result/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CreateResumeRoute: typeof CreateResumeRoute
   FormRoute: typeof FormRoute
   HistoryRoute: typeof HistoryRoute
   ResultRoute: typeof ResultRouteWithChildren
@@ -99,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/form'
       fullPath: '/form'
       preLoaderRoute: typeof FormRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/create-resume': {
+      id: '/create-resume'
+      path: '/create-resume'
+      fullPath: '/create-resume'
+      preLoaderRoute: typeof CreateResumeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -131,6 +161,7 @@ const ResultRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CreateResumeRoute: CreateResumeRoute,
   FormRoute: FormRoute,
   HistoryRoute: HistoryRoute,
   ResultRoute: ResultRouteWithChildren,

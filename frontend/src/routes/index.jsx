@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import ArchetypeForm from '../pages/ArchetypeForm'
+import LandingPage from '../pages/LandingPage'
 import { states } from "../store/globalStates";
 import { useEffect } from 'react';
 
@@ -18,5 +18,5 @@ function RouteComponent() {
     }
   })
 
-  return <ArchetypeForm/>
+  return <LandingPage/>
 }
