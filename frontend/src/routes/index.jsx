@@ -13,8 +13,7 @@ function RouteComponent() {
 
   useEffect(() => {
     if (archetypes.length !== 0) {
-      console.log("archetype : ", archetypes)
-      navigate({to: "/form"})
+      navigate({to: "/create-resume"})
     }
   })
 

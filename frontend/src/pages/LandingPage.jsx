@@ -20,19 +20,19 @@ export default function LandingPage() {
       <nav className="w-full flex justify-between items-center p-6 border-b-4 border-white">
         <div className="font-black text-2xl uppercase tracking-tighter">AI Job Copilot</div>
         <div className="hidden md:flex gap-4 items-center">
-          <div className="w-4 h-4 bg-[#E5FF00] rounded-full animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]"></div>
+          <div className="w-4 h-4 bg-[#E5FF00] rounded-full animate-pulse"></div>
           <span className="font-bold text-sm uppercase text-[#E5FF00]">System Online</span>
         </div>
       </nav>
 
       {/* Main Hero - Horizontal Focus / Asymmetric Load */}
-      <main className="flex-grow flex flex-col md:flex-row border-b-4 border-white">
+      <main className="grow flex flex-col md:flex-row border-b-4 border-white">
         {/* Left Section - Extreme OLED Contrast Typography */}
         <div className="md:w-[60%] w-full flex flex-col justify-center p-8 md:p-16 border-b-4 md:border-b-0 md:border-r-4 border-white relative overflow-hidden group/hero">
           {/* Decorative geometric shapes */}
-          <div className="absolute -top-20 -right-20 w-64 h-64 border-[12px] border-[#E5FF00]/10 rounded-full mix-blend-overlay pointer-events-none group-hover/hero:scale-110 transition-transform duration-700"></div>
+          <div className="absolute -top-20 -right-20 w-64 h-64 border-12 border-[#E5FF00]/10 rounded-full mix-blend-overlay pointer-events-none group-hover/hero:scale-110 transition-transform duration-700"></div>
           
-          <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black uppercase leading-[0.9] tracking-tighter z-10 break-words text-white drop-shadow-[6px_6px_0px_#E5FF00]">
+          <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black uppercase leading-[0.9] tracking-tighter z-10 wrap-break-word text-white drop-shadow-[6px_6px_0px_#E5FF00]">
             Brutally <br /> Honest <br /> Career <br /> Feedback.
           </h1>
           
