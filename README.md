@@ -9,16 +9,18 @@ AI Job Copilot is a powerful, full-stack application that leverages advanced LLM
 - **📑 Smart Resume Parsing:** Automatically extracts text from uploaded resumes.
 - **🎯 ATS-Optimized Tailoring:** Rewrites and optimizes your resume to match the target job description.
 - **✉️ Automated Cover Emails:** Generates short, human-sounding, and personalized application emails.
-- **📊 Fit Score Analysis:** Calculates a match score (0-100) and provides actionable insights (strengths, missing skills, suggestions).
+- **✉️ Personalized LinkedIn Messages:** Generates short, human-sounding, and personalized LinkedIn messages.
+- **📊 Fit Score Analysis:** Calculates a match score (0-100) based on 10 Dimensions (Role Match, Skills Alignment, Seniority, Compensation, Interview Likelihood, Geograhic, Company Stage, Product-Market fit, Growth Trajectory and Timeline) and provides actionable insights.
 - **🎨 Neo-Brutalist UI:** A bold, high-contrast, fully responsive React interface built with Next.js and Tailwind CSS.
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **Framework:** [Next.js 16](https://nextjs.org/) (React 19)
+- **Framework:** [React js](https://react.dev/) 
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
 - **State Management:** [Zustand](https://zustand-demo.pmnd.rs/)
 - **HTTP Client:** [Axios](https://axios-http.com/)
+- **Routing:** [Tanstack Router](https://tanstack.com/router/latest)
 
 ### Backend
 - **Framework:** [FastAPI](https://fastapi.tiangolo.com/) (Python)
