@@ -5,7 +5,7 @@ export const useGenerate = () => {
     return useMutation({
         mutationFn: (data) => {
             console.log("data in generation : ", data)
-            return axios.post("http://127.0.0.1:8000/generate", data)
+            return axios.post("https://ai-job-copilot-backend-0.onrender.com/generate", data)
         }
     })
 }
@@ -14,7 +14,7 @@ export const useOnBoarding = () => {
     return useMutation({
         mutationFn: (data) => {
             console.log("data in onBoarding : ", data)
-            return axios.post("http://127.0.0.1:8000/onboarding", data)
+            return axios.post("https://ai-job-copilot-backend-0.onrender.com/onboarding", data)
         }
     })
 }
