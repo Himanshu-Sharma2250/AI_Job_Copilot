@@ -1,0 +1,1 @@
+pydantic-core --only-binary pydantic-core
