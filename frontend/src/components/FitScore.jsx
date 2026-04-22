@@ -24,6 +24,19 @@ const FitScore = ({ score }) => {
     const fitData = score?.fit_score;
     if (!fitData) return null;
 
+    if (fitData.error) {
+        return (
+            <div className='flex flex-col gap-3'>
+                <span className='text-2xl text-red-600'>
+                    Error☠️🚨
+                </span>
+                <span className=''>
+                    {fitData.error}
+                </span>
+            </div>
+        )
+    }
+
     // Destructure specifically what we need to handle them uniquely
     const { dimension_scores, overall_score, grade, summary } = fitData;
 
